@@ -34,7 +34,7 @@ fliteSpeak (FliteVoice voicePtr) text = B.useAsCString (T.encodeUtf8 text) $ \te
 
 data Cst_Voice
 
-foreign import ccall unsafe flite_init :: IO ()
-foreign import ccall unsafe register_cmu_us_slt :: Ptr CChar -> IO (Ptr Cst_Voice)
-foreign import ccall unsafe flite_voice_select :: Ptr CChar -> IO (Ptr Cst_Voice)
-foreign import ccall unsafe flite_text_to_speech :: Ptr CChar -> Ptr Cst_Voice -> Ptr CChar -> IO CFloat
+foreign import ccall safe flite_init :: IO ()
+foreign import ccall safe register_cmu_us_slt :: Ptr CChar -> IO (Ptr Cst_Voice)
+foreign import ccall safe flite_voice_select :: Ptr CChar -> IO (Ptr Cst_Voice)
+foreign import ccall safe flite_text_to_speech :: Ptr CChar -> Ptr Cst_Voice -> Ptr CChar -> IO CFloat
